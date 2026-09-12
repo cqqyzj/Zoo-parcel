@@ -220,6 +220,150 @@
     <p>More animals coming soon!</p>
 
 
+    <style>
+.goog-te-banner-frame {
+    display:none !important;
+}
+
+body {
+    top:0px !important;
+}
+#custom-translate-btn {
+
+    position: fixed;
+
+    top:20px;
+
+    right:20px;
+
+    z-index:999999;
+
+    background:#1a1a1a;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    box-shadow:0 3px 8px rgba(0,0,0,0.3);
+
+}
+
+#google_translate_element {
+
+    position:fixed;
+
+    left:-9999px;
+
+    top:-9999px;
+
+}
+
+
+</style>
+
+<button id="custom-translate-btn">
+    EN / 中文
+</button>
+
+<div id="google_translate_element"></div>
+
+
+
+<script>
+function googleTranslateElementInit(){
+
+
+    new google.translate.TranslateElement(
+
+        {
+
+            pageLanguage:'en',
+
+            includedLanguages:'en,zh-CN',
+
+            autoDisplay:false
+
+        },
+
+        'google_translate_element'
+
+    );
+
+
+}
+
+document
+.getElementById("custom-translate-btn")
+.addEventListener("click",function(){
+
+
+    let check = setInterval(function(){
+
+
+        let select = document.querySelector(".goog-te-combo");
+
+
+
+        if(select){
+
+
+            clearInterval(check);
+
+
+
+            if(select.value === "zh-CN"){
+
+
+                select.value="en";
+
+
+                this.innerHTML="EN / 中文";
+
+
+            }
+
+            else{
+
+
+                select.value="zh-CN";
+
+
+                this.innerHTML="中文 / EN";
+
+
+            }
+
+
+
+            select.dispatchEvent(
+                new Event("change")
+            );
+
+
+        }
+
+
+    }.bind(this),500);
+
+
+
+});
+
+
+
+</script>
+
+<script 
+src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 
 <fluxdown-ui style="overflow: visible; position: relative; width: 0px; height: 0px; display: block;"><template shadowrootmode="open">
 <!-- saved from url=(0032)https://hello.teacherfan.cn/zoo/ -->
@@ -273,14 +417,14 @@
         }
 
         section h3 {
-    font-size: 20px;
-    font-weight: 600;
-    padding: 60px 0 30px 0; 
-    text-align: left; 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding-left: 20px; 
-}
+            font-size: 20px;
+            font-weight: 600;
+            padding: 60px 0 30px 0; 
+            text-align: left; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding-left: 20px; 
+        }
 
         .intro {
             font-size: 21px;
@@ -343,12 +487,12 @@
         }
 
         .card img {
-    width: 100%;
-    height: 220px; 
-    object-fit: contain; 
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
+            width: 100%;
+            height: 220px; 
+            object-fit: contain; 
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
 
         .link-text {
             margin-top: 25px;
@@ -368,13 +512,11 @@
             color: var(--text-secondary);
         }
 
-.animal-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; 
-   justify-content: center; 
-    padding: 20px 0; 
-}
-
-
-    </style>
+        .animal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; 
+            justify-content: center; 
+            padding: 20px 0; 
+        }
+</style>
