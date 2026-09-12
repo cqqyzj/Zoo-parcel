@@ -16,16 +16,13 @@
     <hr>
 
     <div class = "container">
+
+        <div class="animal-grid"></div>
+
     <h3>Mammals</h3>
     <a href="giraffe.html" class="card">
         <h4>Giraffe</h4>
             <img src="./My Zoo Portal_files/giraffe.jpg" alt="Giraffe">
-                <style>
-                    img {
-                        width: 300px;
-                        height: 200px;
-                    }
-                </style>
             <p>The giraffe has a long neck.</p>
             <div class="link-text">Learn more</div>
         </a>
@@ -177,6 +174,7 @@
             <p>The crab has two claws.</p>
             <div class="link-text">Learn more</div>
         </a>
+        </div>
 </div>
 
     <hr>
@@ -250,15 +248,12 @@
             max-width: 1080px;
             margin: 0 auto;
             padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
         }
 
 
         .card {
             background: var(--bg-card);
-            border-radius: var(--radius);
+            border-radius: 18px;
             overflow: hidden;
             text-decoration: none; 
             color: inherit;
@@ -266,9 +261,13 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
+            justify-content: flex-start;
+            max-width: 400px; 
+            margin: 0 auto;
+            padding: 40px 30px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.04); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding-bottom: 20px;
         }
 
 
@@ -283,21 +282,28 @@
         }
 
         .card h3 {
+            font-size: 1.2rem;
+        margin: 10px 0 5px;
+        font-weight: 600;
+        }
+
+        .card h4 {
             font-size: 24px;
             font-weight: 600;
             margin: 10px 0;
         }
 
         .card p {
-            font-size: 17px;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.5;
-            margin: 0;
+            margin: 0 0 15px;
+            padding: 0 15px
         }
 
         .link-text {
             margin-top: 25px;
-            font-size: 17px;
+            font-size: 0.9rem;
             color: var(--accent);
             font-weight: 500;
         }
@@ -312,4 +318,33 @@
             font-size: 14px;
             color: var(--text-secondary);
         }
+
+        .animal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; 
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .animal-grid h3 {
+            grid-column: 1 / -1; /* 强制占据整行 */
+            width: 100%;
+            text-align: left;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #1d1d1f;
+        }
+
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
     </style>
